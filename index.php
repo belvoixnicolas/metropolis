@@ -9,9 +9,12 @@
       <link rel="icon" type="image/x-icon" href="favicon.ico">
       <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="resource/img/favicon.ico" /><![endif]-->
       <link rel="stylesheet" type="text/css" href="css/reset.css" />
-      <link rel="stylesheet" type="text/css" href="index.css" />
+      <link rel="stylesheet" type="text/css" href="css/index.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
+      <nav>
+      </nav>
       <header>
         <div id="choix">
           <input type="button" name="ident" value="Se connecter" />

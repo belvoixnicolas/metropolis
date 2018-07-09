@@ -1,0 +1,23 @@
+nav {
+  position: fixed;
+  top: 0;
+  background: #000;
+  height: 50px;
+  width: 100%;
+}
+
+header {
+  margin-top: 50px;
+}
+
+main {
+  margin-bottom: 50px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: #000;
+  height: 50px;
+  width: 100%;
+}
