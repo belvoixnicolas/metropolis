@@ -7,11 +7,67 @@ nav {
 }
 
 header {
+  position: sticky;
+  top: 0px;
+  background: #000 url('../img/header.jpg') no-repeat center top;
+  background-size: cover;
   margin-top: 50px;
+  height: calc(100vh - 50px * 2);
+  transition: .5s;
+}
+
+.anim {
+  height: 100px;
+  background-position: center;
+}
+
+#choix {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+#choix input, #choix a {
+  background: rgba(0, 0, 0, .7);
+  box-shadow: 0 0 0 0 black,  inset 0 0 0 0 grey;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 20%;
+  text-align: center;
+  color: #FFF;
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: .9s;
+}
+
+#choix input:hover, #choix a:hover {
+  background: hsla(240, 100%, 55%, .7);
+  box-shadow: 10px 10px 10px 2px black,  inset 1px 1px 6px 1px #2A2AFF;
+  border: 1px solid blue;
+}
+
+#choix input:active, #choix a:active {
+  background: hsla(240, 100%, 55%, .7);
+  box-shadow: 0 0 0 0 black,  inset -1px -1px 6px 1px #000;
+  border: #000;
+  transition: 0s;
+}
+
+#ident {
+  display: none;
 }
 
 main {
   margin-bottom: 50px;
+  height: 200vh;
+}
+
+.contact {
+  display: none;
 }
 
 footer {
@@ -20,4 +76,9 @@ footer {
   background: #000;
   height: 50px;
   width: 100%;
+  transition: .9s;
+}
+
+.static {
+  height: 0px;
 }

@@ -10,6 +10,7 @@
       <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="resource/img/favicon.ico" /><![endif]-->
       <link rel="stylesheet" type="text/css" href="css/reset.css" />
       <link rel="stylesheet" type="text/css" href="css/index.css" />
+      <link href="https://fonts.googleapis.com/css?family=Marck+Script|Open+Sans" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
@@ -54,8 +55,8 @@
 
       <main>
         <section>
-          <button type="button" name="description">Description</button>
-          <button type="button" name="Contact">Contact</button>
+          <button type="button" name="description" onclick="truc()">Description</button>
+          <button type="button" name="contact">Contact</button>
 
           <p class="description">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -74,5 +75,20 @@
           <li><a href="http://www.cinemet.fr/rss/" target="_blank"><img src="img/rss.png" alt="RSS" /></a></li>
         </ul>
       </footer>
+      <script type="text/javascript" src="js/ident.js"></script>
+      <script type="text/javascript" src="js/index_section.js"></script>
+      <script type="text/javascript">
+      setInterval(function(){
+        if (window.pageYOffset > 0) {
+          document.querySelector('header').className = 'anim';
+          document.querySelector('footer').className = 'static';
+        }else {
+          document.querySelector('header').className = '';
+          document.querySelector('footer').className = '';
+        }
+      }, 5);
+
+      var binaire = 0;
+      </script>
     </body>
   </html>
