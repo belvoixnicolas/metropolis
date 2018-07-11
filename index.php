@@ -25,14 +25,15 @@
         <div id="ident">
           <div class="connect">
             <form action="#" method="post">
+              <h2>Connexion</h2>
               <input type="email" name="mail_co" placeholder="Mail" required />
               <input type="password" name="psw_co" placeholder="Mot de passe" required  />
               <input type="submit" value="Connexion" />
             </form>
           </div>
-
           <div class="inscri">
             <form action="#" method="post">
+              <h2>Inscription</h2>
               <select name="genre">
                 <option value="h">Je suis un homme</option>
                 <option value="f">Je suis une femme</option>

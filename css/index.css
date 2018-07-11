@@ -59,6 +59,91 @@ header {
 
 #ident {
   display: none;
+  height: 100%;
+}
+
+#ident div {
+  display: inline-block;
+  width: calc(50% - 2px);
+  height: 100%;
+  float: right;
+  transition: .5s;
+}
+
+#ident div:hover {
+  background: hsla(240, 100%, 55%, .1);
+  box-shadow: inset 0 0 20px 1px #000;
+}
+
+#ident .connect {
+  border-left: 1px solid lightgrey;
+}
+
+#ident .inscri {
+  border-right: 1px solid lightgrey;
+}
+
+#ident form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#ident h2 {
+  color: #FFF;
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
+  text-decoration: underline;
+  margin-bottom: 25px;
+}
+
+#ident input, #ident select {
+  height: 5%;
+  width: 50%;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: 'Open Sans', sans-serif;
+  transition: .5s;
+}
+
+#ident input:focus, #ident select:focus {
+  box-shadow: inset 0 0 10px 1px grey;
+}
+
+#ident input:valid, #ident select:valid {
+  box-shadow: inset 0 0 10px 1px green;
+}
+
+#ident select {
+  width: calc(50% + 5px);
+  padding: 1px;
+}
+
+#ident input[type=submit] {
+  background: rgba(0, 0, 0, .7);
+  box-shadow: inset 0 0 0 0 grey;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 20%;
+  color: #FFF;
+  cursor: pointer;
+  transition: .9s;
+}
+
+#ident input[type=submit]:hover {
+  background: hsla(240, 100%, 55%, .7);
+  box-shadow: inset 1px 1px 6px 1px #2A2AFF;
+  border: 1px solid blue;
+}
+
+#ident input[type=submit]:active {
+  background: hsla(240, 100%, 55%, .7);
+  box-shadow: 0 0 0 0 black,  inset -1px -1px 6px 1px #000;
+  border: #000;
+  transition: 0s;
 }
 
 main {
