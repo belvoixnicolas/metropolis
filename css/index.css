@@ -1,3 +1,16 @@
+@import "icon_input.css";
+
+html {
+  min-height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+}
+
+body {
+  position: relative;
+  height: 100%;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -93,36 +106,63 @@ header {
 
 #ident h2 {
   color: #FFF;
-  font-family: 'Marck Script', cursive;
   font-size: 2rem;
   text-decoration: underline;
+  font-family: 'Marck Script', cursive;
   margin-bottom: 25px;
 }
 
-#ident input, #ident select {
+#ident p {
+  height: 5%;
+  width: 50%;
+  text-align: center;
+}
+
+
+#ident input, .genre label {
+  background: #FFF;
   height: 5%;
   width: 50%;
   margin: 20px;
   border: 1px solid black;
   border-radius: 10px;
-  font-family: 'Open Sans', sans-serif;
   transition: .5s;
 }
 
-#ident input:focus, #ident select:focus {
+#ident .h {
+  background: #FFF url('../img/icon_man.gif') center no-repeat;
+  background-size: 80%;
+}
+
+#ident .f {
+  background: #FFF url('../img/icon_woman.gif') center no-repeat;
+  background-size: 80%;
+}
+
+.genre label {
+  display: inline-block;
+  margin: 0 16%;
+  height: 100%;
+  width: 13%;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.selectgenre{
+  box-shadow: inset 0 0 5px 1px #000;
+}
+
+#ident .genre input {
+  margin: 0;
+  width: auto;
+  opacity: 0;
+}
+
+#ident input:focus{
   box-shadow: inset 0 0 10px 1px grey;
 }
 
-#ident input:valid, #ident select:valid {
-  box-shadow: inset 0 0 10px 1px green;
-}
-
-#ident select {
-  width: calc(50% + 5px);
-  padding: 1px;
-}
-
-#ident input[type=submit] {
+#ident input[type=submit], #ident button {
   background: rgba(0, 0, 0, .7);
   box-shadow: inset 0 0 0 0 grey;
   border: 1px solid black;
@@ -133,13 +173,13 @@ header {
   transition: .9s;
 }
 
-#ident input[type=submit]:hover {
+#ident input[type=submit]:hover, #ident button:hover {
   background: hsla(240, 100%, 55%, .7);
   box-shadow: inset 1px 1px 6px 1px #2A2AFF;
   border: 1px solid blue;
 }
 
-#ident input[type=submit]:active {
+#ident input[type=submit]:active, #ident button:active {
   background: hsla(240, 100%, 55%, .7);
   box-shadow: 0 0 0 0 black,  inset -1px -1px 6px 1px #000;
   border: #000;

@@ -1,15 +1,18 @@
 input[type=text], input[type=email], input[type=password] {
-  padding-left: auto;
+  padding-left: calc(10% + 5px);
+  background-repeat: no-repeat!important;
+  background-size: 10% 80%!important;
+  background-position: 5px center!important;
 }
 
 input[type=text], .connect input[type=email] {
-  
+  background-image: url('../img/icon_user.png')!important;
 }
 
 input[type=email] {
-
+  background-image: url('../img/icon_mail.gif')!important;
 }
 
 input[type=password] {
-
+  background-image: url('../img/icon_psw.png')!important;
 }

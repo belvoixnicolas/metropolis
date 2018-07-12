@@ -34,10 +34,11 @@
           <div class="inscri">
             <form action="#" method="post">
               <h2>Inscription</h2>
-              <select name="genre">
-                <option value="h">Je suis un homme</option>
-                <option value="f">Je suis une femme</option>
-              </select>
+
+              <p class='genre'>
+                <label class="h"><input type="radio" name="genre" value="homme" /></label>
+                <label class="f"><input type="radio" name="genre" value="femme" /></label>
+              </p>
 
               <input type="text" name="nom" placeholder="Nom" required />
               <input type="text" name="prenom" placeholder="Prénom" required />
@@ -56,7 +57,7 @@
 
       <main>
         <section>
-          <button type="button" name="description" onclick="truc()">Description</button>
+          <button type="button" name="description">Description</button>
           <button type="button" name="contact">Contact</button>
 
           <p class="description">
@@ -79,17 +80,16 @@
       <script type="text/javascript" src="js/ident.js"></script>
       <script type="text/javascript" src="js/index_section.js"></script>
       <script type="text/javascript">
-      setInterval(function(){
-        if (window.pageYOffset > 0) {
-          document.querySelector('header').className = 'anim';
-          document.querySelector('footer').className = 'static';
-        }else {
-          document.querySelector('header').className = '';
-          document.querySelector('footer').className = '';
-        }
-      }, 5);
-
-      var binaire = 0;
+        setInterval(function(){
+          if (window.pageYOffset > 0) {
+            document.querySelector('header').className = 'anim';
+            document.querySelector('footer').className = 'static';
+          }else {
+            document.querySelector('header').className = '';
+            document.querySelector('footer').className = '';
+          }
+        }, 5);
       </script>
+      <script type="text/javascript" src="js/radio.js"></script>
     </body>
   </html>
