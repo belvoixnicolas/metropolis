@@ -1,9 +1,12 @@
+var homme = document.querySelector('.h');
+var femme = document.querySelector('.f');
+
 $('.h').click(function() {
-  document.querySelector('.h').classList.add('selectgenre');
-  document.querySelector('.f').classList.remove('selectgenre');
+  homme.classList.add('selectgenre');
+  femme.classList.remove('selectgenre');
 });
 
 $('.f').click(function() {
-  document.querySelector('.f').classList.add('selectgenre');
-  document.querySelector('.h').classList.remove('selectgenre');
+  femme.classList.add('selectgenre');
+  homme.classList.remove('selectgenre');
 });
