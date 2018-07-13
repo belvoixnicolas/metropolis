@@ -80,10 +80,21 @@
       <script type="text/javascript" src="js/ident.js"></script>
       <script type="text/javascript" src="js/index_section.js"></script>
       <script type="text/javascript">
+      var num = 0;
         setInterval(function(){
-          if (window.pageYOffset > 0) {
+          if (window.pageYOffset > 0 && document.querySelector('header').className == '') {
+            if (document.querySelector('#choix').style.display == 'none') {
+              $('#ident').animate({opacity: '0'}, 'slow', function(){$('#ident').hide()});
+              $('#choix').animate({opacity: '0'}, function(){$('#choix').show();});
+              $('#choix').animate({opacity: '1'}, 'slow');
+              $('#ident').animate({opacity: '1'});
+            }
             document.querySelector('header').className = 'anim';
-            document.querySelector('footer').className = 'static';
+            $('footer').animate({height: '0px'}, 'slow', function() {document.querySelector('footer').className = 'static';});
+            $('footer').animate({height: '50px'});
+          }else if (window.pageYOffset > 0 && document.querySelector('header').className == 'anim') {
+            console.log('je sait compter jusqu\'a ' + num + '.');
+            num++;
           }else {
             document.querySelector('header').className = '';
             document.querySelector('footer').className = '';

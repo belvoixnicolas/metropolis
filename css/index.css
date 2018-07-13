@@ -187,7 +187,6 @@ header {
 }
 
 main {
-  margin-bottom: 50px;
   height: 200vh;
 }
 
@@ -205,5 +204,6 @@ footer {
 }
 
 .static {
-  height: 0px;
+  position: static;
+  height: 50px;
 }
