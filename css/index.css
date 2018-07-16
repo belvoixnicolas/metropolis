@@ -42,7 +42,7 @@ header {
   height: 100%;
 }
 
-#choix input, #choix a {
+#choix input, #choix a, main button {
   background: rgba(0, 0, 0, .7);
   box-shadow: 0 0 0 0 black,  inset 0 0 0 0 grey;
   border: 1px solid black;
@@ -57,13 +57,13 @@ header {
   transition: .9s;
 }
 
-#choix input:hover, #choix a:hover {
+#choix input:hover, #choix a:hover, main button:hover {
   background: hsla(240, 100%, 55%, .7);
   box-shadow: 10px 10px 10px 2px black,  inset 1px 1px 6px 1px #2A2AFF;
   border: 1px solid blue;
 }
 
-#choix input:active, #choix a:active {
+#choix input:active, #choix a:active, main button:active {
   background: hsla(240, 100%, 55%, .7);
   box-shadow: 0 0 0 0 black,  inset -1px -1px 6px 1px #000;
   border: #000;
@@ -187,23 +187,64 @@ header {
 }
 
 main {
-  height: 200vh;
+  min-height: calc(100vh - 40px - 100px);
+}
+
+section {
+  width: 70%;
+  margin: 50px auto;
+}
+
+.bouton {
+  text-align: center;
+}
+
+main button {
+  background-color: #000;
+  margin: 0 30px 50px;
+  font-size: 1.5rem;
+  width: 150px;
 }
 
 .contact {
   display: none;
 }
 
+.static {
+  position: static;
+  height: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
+  margin: 30px 0 0;
+}
+
 footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
   position: fixed;
   bottom: 0;
   background: #000;
   height: 50px;
-  width: 100%;
+  width: calc(100vw - 37px);
   transition: .9s;
 }
 
-.static {
-  position: static;
-  height: 50px;
+footer p, footer a {
+  color: #FFF;
+  line-height: 50px;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+footer img {
+  height: 30px;
 }
