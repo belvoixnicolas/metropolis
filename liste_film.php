@@ -1,6 +1,26 @@
 <?php
+  function genre($film) {
+    $dbh = new PDO('mysql:host=localhost;dbname=metropolis', 'root', '');
+    $dbh->exec("SET CHARACTER SET utf8");
+    $genres = '';
+
+    foreach($dbh->query('SELECT * from appartenir') as $liste) {
+      if ($liste[0] == $film) {
+        $idgenre = $liste[1];
+        foreach($dbh->query('SELECT * from genre') as $genre) {
+          if ($genre[0] == $idgenre) {
+          $genres = $genre[1] . '<br/>' . $genres;
+          }
+        }
+      }
+    }
+    return $genres;
+
+    $dbh = NULL;
+  }
+
   $dbh = new PDO('mysql:host=localhost;dbname=metropolis', 'root', '');
-  foreach($dbh->query('SELECT * from film') as $row) {
+  $dbh->exec("SET CHARACTER SET utf8");
 ?>
 
 <!DOCTYPE HTML>
@@ -44,11 +64,14 @@
       </form>
 
       <main>
-        <a href="film.php?film=<?php echo $row['titre'];?>" style="background-image: url(img/affiche/defau.jpg);">
-          <h2 class="titre"><?php echo $row['titre']; ?></h2>
-          <p class="genre">Genre</p>
-          <p class="descript"><?php echo $row['description']; ?></p>
-        </a>
+        <div>
+          <?php foreach($dbh->query('SELECT * from film') as $row) { ?>
+            <a href="film.php?film=<?php echo $row['titre'];?>" style="background-image: url(img/affiche/<?php echo $row['affiche']; ?>);">
+              <p class="genre"><?php echo genre($row['ID']); ?></p>
+              <p class="descript"><?php echo $row['description']; ?></p>
+            </a>
+          <?php } ?>
+      </div>
       </main>
       <footer>
         <p>&copy; Metropolis | <a href="legal">Mentions légals</a> | Belvoix Nicolas</p>
@@ -66,6 +89,5 @@
           <li><a href="index.php">Déconnexion</a></li>
         </ul>
       </nav>
-    <?php } ?>
     </body>
   </html>
