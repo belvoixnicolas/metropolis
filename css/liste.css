@@ -37,21 +37,19 @@ body {
 }
 
 main {
-  padding: 20px 40px;
+  padding: 20px 50px;
   min-height: calc(100vh - 90px - 20px - 70px);
   text-align: center;
 }
 
 main div {
   border: 1px solid red;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(125px, 225px));
-
-}
-  /*display: inline-flex;
+  display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;*/
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+}
 
 main a {
   display: block;
@@ -59,18 +57,18 @@ main a {
   background-size: cover;
   height: 300px;
   width: 225px;
-  /*margin: 10px;*/
   /*padding: 5px;*/
+  margin-bottom: 20px;
   color: #FFF;
 }
 
 main .genre {
   text-align: left;
   font-size: .8rem;
+  height: 50%;
 }
 
 main .descript {
-  border: 1px solid red;
   position: relative;
   bottom: 0px;
   text-align: left;
