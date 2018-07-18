@@ -14,7 +14,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-      <nav>
+      <nav id="index">
       </nav>
       <header>
         <div id="choix">
@@ -110,13 +110,10 @@
         </section>
       </main>
 
-      <footer>
-        <p>&copy; Metropolis | <a href="legal">Mentions légals</a> | Belvoix Nicolas</p>
-        <ul>
-          <li><a href="http://www.facebook.com/pages/Cin%C3%A9ma-Metropolis-Officiel/149078338485021" target="_blank"><img src="img/facebook.png" alt="Facebook" /></a></li>
-          <li><a href="http://www.cinemet.fr/rss/" target="_blank"><img src="img/rss.png" alt="RSS" /></a></li>
-        </ul>
-      </footer>
+      <!-- FOOTER -->
+      <?php include 'include/footer.php'; ?>
+      <!-- FOOTER -->
+
       <script type="text/javascript" src="js/ident.js"></script>
       <script type="text/javascript" src="js/index_section.js"></script>
       <script type="text/javascript">

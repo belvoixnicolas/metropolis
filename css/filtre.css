@@ -1,0 +1,26 @@
+.filtres {
+  background: #000;
+  padding: 10px 50px;
+}
+
+.filtres input, .filtres select {
+  height: 30px;
+}
+
+.champrecherche {
+  margin-bottom: 10px;
+}
+
+.champrecherche input {
+  width: 100%;
+}
+
+.filtre {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.filtre select {
+  width: 15%;
+}

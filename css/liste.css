@@ -1,3 +1,7 @@
+@import url('footer.css');
+@import url('nav.css');
+@import url('filtre.css');
+
 html {
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
@@ -7,33 +11,6 @@ html {
 body {
   position: relative;
   height: 100%;
-}
-
-.filtres {
-  background: #000;
-  padding: 10px 50px;
-}
-
-.filtres input, .filtres select {
-  height: 30px;
-}
-
-.champrecherche {
-  margin-bottom: 10px;
-}
-
-.champrecherche input {
-  width: 100%;
-}
-
-.filtre {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-
-.filtre select {
-  width: 15%;
 }
 
 main {
@@ -75,62 +52,4 @@ main .descript {
   font-size: .7rem;
   height: 50%;
   overflow: hidden;
-}
-
-footer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  background: #000;
-  height: 50px;
-  width: calc(100% - 10 * 2);
-}
-
-footer p, footer a {
-  color: #FFF;
-  line-height: 50px;
-}
-
-footer li {
-  display: inline-block;
-  margin: 0 5px;
-}
-
-footer img {
-  height: 30px;
-}
-
-nav {
-  position: fixed;
-  bottom: 0px;
-  width: 200px;
-  margin: 0 calc(100vw / 2 - 100px - 20px);
-  padding: 10px;
-  text-align: center;
-}
-
-nav h2 {
-  font-family: 'Marck Script', cursive;
-  font-size: 2rem;
-  height: 30px;
-}
-
-nav ul {
-  margin-top: 10px;
-  display: none;
-}
-
-nav li {
-  margin: 5px 0;
-}
-
-nav h2, nav a {
-  color: red;
-  line-height: 30px;
-}
-
-nav a:hover {
-  color: #000;
 }

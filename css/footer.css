@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background: #000;
+  height: 50px;
+  width: calc(100% - 10 * 2);
+}
+
+footer p, footer a {
+  color: #FFF;
+  line-height: 50px;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+footer img {
+  height: 30px;
+}

@@ -39,29 +39,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-      <form class="filtres" action="#" method="get">
-        <fieldset class="champrecherche">
-          <input type="search" name="recherch" placeholder="Recherche">
-        </fieldset>
-
-        <fieldset class="filtre">
-          <select class="genre" name="genre">
-            <option value="none">Genre</option>
-          </select>
-
-          <select class="date" name="date">
-            <option value="none">Date</option>
-          </select>
-
-          <select class="realisateur" name="realisateur">
-            <option value="none">Réalisateur</option>
-          </select>
-
-          <select class="acteur" name="acteur">
-            <option value="none">Acteur</option>
-          </select>
-        </fieldset>
-      </form>
+      <!-- FILTRE -->
+      <?php include 'include/filtre.php'; ?>
+      <!-- FILTRE -->
 
       <main>
         <div>
@@ -73,21 +53,12 @@
           <?php } ?>
       </div>
       </main>
-      <footer>
-        <p>&copy; Metropolis | <a href="legal">Mentions légals</a> | Belvoix Nicolas</p>
-        <ul>
-          <li><a href="http://www.facebook.com/pages/Cin%C3%A9ma-Metropolis-Officiel/149078338485021" target="_blank"><img src="img/facebook.png" alt="Facebook" /></a></li>
-          <li><a href="http://www.cinemet.fr/rss/" target="_blank"><img src="img/rss.png" alt="RSS" /></a></li>
-        </ul>
-      </footer>
-      <nav>
-        <h2>Menu</h2>
-        <ul>
-          <li><a href="profil.php">Mon profil</a></li>
-          <li><a href="profil.php#favorie">Favorie</a></li>
-          <li><a href="Contact.php">Nous contacter</a></li>
-          <li><a href="index.php">Déconnexion</a></li>
-        </ul>
-      </nav>
+      <!-- FOOTER -->
+      <?php include 'include/footer.php' ?>
+      <!-- FOOTER -->
+
+      <!-- NAV -->
+      <?php include 'include/nav.php' ?>
+      <!-- NAV -->
     </body>
   </html>
