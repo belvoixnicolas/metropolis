@@ -14,9 +14,12 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
+      <!-- FILTRE -->
+      <?php include 'include/filtre.php'; ?>
+      <!-- FILTRE -->
 
       <main>
-        <video poster="posterimage.jpg" controls preload="auto">
+        <video poster="img/affiche/avatar.jpg" controls preload="auto">
           <source src="video/film.mp4" type="video/mp4" />
         </video>
 
@@ -47,6 +50,12 @@
         </section>
       </main>
 
+      <!-- FOOTER -->
+      <?php include 'include/footer.php'; ?>
+      <!-- FOOTER -->
 
+      <!-- NAV -->
+      <?php include 'include/nav.php'; ?>
+      <!-- NAV -->
     </body>
   </html>

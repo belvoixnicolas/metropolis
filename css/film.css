@@ -1,0 +1,9 @@
+@import "filtre.css";
+@import "footer.css";
+@import "nav.css";
+
+video {
+  width: 100%;
+  height: 50vh;
+  background: #000;
+}
