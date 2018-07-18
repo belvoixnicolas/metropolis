@@ -57,7 +57,7 @@ main a {
   background-size: cover;
   height: 300px;
   width: 225px;
-  /*padding: 5px;*/
+  padding: 5px;
   margin-bottom: 20px;
   color: #FFF;
 }
@@ -85,7 +85,7 @@ footer {
   padding: 0 10px;
   background: #000;
   height: 50px;
-  width: calc(100vw - 37px);
+  width: calc(100% - 10 * 2);
 }
 
 footer p, footer a {
@@ -100,4 +100,37 @@ footer li {
 
 footer img {
   height: 30px;
+}
+
+nav {
+  position: fixed;
+  bottom: 0px;
+  width: 200px;
+  margin: 0 calc(100vw / 2 - 100px - 20px);
+  padding: 10px;
+  text-align: center;
+}
+
+nav h2 {
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
+  height: 30px;
+}
+
+nav ul {
+  margin-top: 10px;
+  display: none;
+}
+
+nav li {
+  margin: 5px 0;
+}
+
+nav h2, nav a {
+  color: red;
+  line-height: 30px;
+}
+
+nav a:hover {
+  color: #000;
 }
