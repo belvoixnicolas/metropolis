@@ -101,4 +101,17 @@
 
     return $acteur;
   }
+
+  function background($id_film, $dbh) {
+    $background = '';
+    $sql = 'SELECT background FROM film WHERE ID = ' . $id_film;
+    foreach ($dbh->query($sql) as $row) {
+      $background = $row[0];
+    }
+    if ($background == '') {
+      $background = 'defau.jpg';
+    }
+
+    return $background;
+  }
 ?>

@@ -14,6 +14,7 @@
     $description = description($film, $dbh);
     $realisateur = realisateur($film, $dbh);
     $acteur = acteur($film, $dbh);
+    $background = background($film, $dbh);
   }else {
     $titre = 'Titre';
     $genre = 'Erreur';
@@ -51,7 +52,7 @@
             <source src="video/<?php echo $video; ?>" type="video/mp4" />
           </video>
 
-          <div class="info">
+          <div class="info" style="background-image: url('img/background/<?php echo $background; ?>');">
             <h1 class="titre"><?php echo $titre; ?></h1>
             <ul class="genre"><?php echo $genre; ?></ul>
             <a id="play" href="#">play</a>
