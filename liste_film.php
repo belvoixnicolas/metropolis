@@ -46,7 +46,7 @@
       <main>
         <div>
           <?php foreach($dbh->query('SELECT * from film') as $row) { ?>
-            <a href="film.php?film=<?php echo $row['titre'];?>" style="background-image: url(img/affiche/<?php echo $row['affiche']; ?>);">
+            <a href="film.php?film=<?php echo $row['ID'];?>" style="background-image: url(img/affiche/<?php echo $row['affiche']; ?>);">
               <p class="genre"><?php echo genre($row['ID']); ?></p>
               <p class="descript"><?php echo $row['description']; ?></p>
             </a>
