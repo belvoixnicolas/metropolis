@@ -32,23 +32,44 @@
     $vue = 0;
     foreach ($dbh->query('SELECT titre FROM film') as $row) {
       if ($_POST['titre'] == $row[0]) {
-        $titre_vue++;
+        $vue++;
       }
     }
 
     if ($vue == 0) {
       $req_film = $dbh->prepare('INSERT INTO film(titre,vue,description,affiche,video,ID_date,background) VALUES(:titre,0,:descript,:affiche,:video,:date,:background)');
-      $req_date = $dbh->prepare('INSERT INTO date(ID,annee) VALUES(:annee,:annee)');
-      $req_acteur = $dbh->prepare('INSERT INTO acteur(nom,prenom) VALUES(:nom,:prenom)');
       $req_appartenir = $dbh->prepare('INSERT INTO appartenir(ID,ID_genre) VALUES(:idfilm,:idgenre)');
       $req_fait = $dbh->prepare('INSERT INTO fait(ID,ID_realisateur) VALUES(:idfilm,:idrea)');
-      $req_genre = $dbh->prepare('INSERT INTO genre(genre) VALUES(:genre)');
       $req_joue = $dbh->prepare('INSERT INTO joue(ID,ID_Acteur) VALUES(:idfilm,:idacteur)');
-      $req_realisateur = $dbh->prepare('INSERT INTO realisateur(nom,prenom) VALUES(:nom,:prenom)');
 
-      // FAIT ajout_date($date,$dbh)
+    if (/*ajout_date($_POST['anner'], $dbh) && ajout_acteur($_POST['nom_acteur'], $_POST['prenom_acteur'], $dbh) && ajout_realisateur($_POST['nom_realisateur'], $_POST['prenom_realisateur'], $dbh) && ajout_genre($_POST['genre'], $dbh)*/ TRUE) {
+        $titre = strtolower($_POST['titre']);
+        $description = $_POST['description'];
+        $extansions_fichier = strtolower(substr(strrchr($_FILES['affiche']['name'] , '.') , 1));
+        $affiche = str_replace(' ','',$titre) . '.' . $extansions_fichier;
+        $extansions_fichier = strtolower(substr(strrchr($_FILES['video']['name'] , '.') , 1));
+        $video = str_replace(' ','',$titre) . '.' . $extansions_fichier;
+        $extansions_fichier = strtolower(substr(strrchr($_FILES['background']['name'] , '.') , 1));
+        $background = 'back_' . str_replace(' ','',$titre) . '.' . $extansions_fichier;
+        $date = $_POST['anner'];
+
+        $req_film->execute(array('titre' => $titre, 'descript' => $description, 'affiche' => $affiche, 'video' => $video, 'date' => $date, 'background' => $background ));
+
+        $idfilm = '';
+        foreach ($dbh->query('SELECT ID , titre FROM film') as $row) {
+          if ($row[1] == $titre) {
+            $idfilm = $row[0];
+          }
+        }
+
+        if ($idfilm != '') {
+          
+        }
+      }else {
+        echo 'ERREUR';
+      }
     }else {
-      $erreur = '<p>Le film existe déja dans la base de donnes</p>';
+      echo '<p>Le film existe déja dans la base de donnes</p>';
     }
   }
  ?>
@@ -79,6 +100,7 @@
         <input type="text" name="prenom_acteur" placeholder="Prénom acteur" >
         <input type="text" name="nom_realisateur" placeholder="Nom réalisateur" >
         <input type="text" name="prenom_realisateur" placeholder="Prénom réalisateur" >
+        <input type="text" name="genre" placeholder="Genre" >
         <input type="submit" value="envoyer">
       </form>
     </body>

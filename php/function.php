@@ -140,4 +140,102 @@
       }
     }
   }
+
+  function ajout_acteur($nom, $prenom, $dbh)  {
+    $nom = strtolower($nom);
+    $prenom = strtolower($prenom);
+
+    $req_acteur = $dbh->prepare('INSERT INTO acteur(nom,prenom) VALUES(:nom,:prenom)');
+
+    $vue = 0;
+    foreach ($dbh->query('SELECT * FROM acteur') as $row) {
+      if ($row[1] == $nom && $row[2] == $prenom) {
+        $vue++;
+      }
+    }
+
+    if ($vue == 0) {
+      $req_acteur->execute(array('nom' => $nom, 'prenom' => $prenom));
+    }else {
+      return TRUE;
+    }
+
+    $vue == 0;
+    foreach ($dbh->query('SELECT nom , prenom FROM acteur') as $row) {
+      if ($row[0] == $nom && $row[1] == $prenom) {
+        $vue++;
+      }
+    }
+
+    if ($vue > 0) {
+      return TRUE;
+    }else {
+      return FALSE;
+    }
+  }
+
+  function ajout_realisateur($nom, $prenom, $dbh)  {
+    $nom = strtolower($nom);
+    $prenom = strtolower($prenom);
+
+    $req_realisateur = $dbh->prepare('INSERT INTO realisateur(nom,prenom) VALUES(:nom,:prenom)');
+
+    $vue = 0;
+    foreach ($dbh->query('SELECT * FROM realisateur') as $row) {
+      if ($row[1] == $nom && $row[2] == $prenom) {
+        $vue++;
+      }
+    }
+
+    if ($vue == 0) {
+      $req_realisateur->execute(array('nom' => $nom, 'prenom' => $prenom));
+    }else {
+      return TRUE;
+    }
+
+    $vue == 0;
+    foreach ($dbh->query('SELECT nom , prenom FROM realisateur') as $row) {
+      if ($row[0] == $nom && $row[1] == $prenom) {
+        $vue++;
+      }
+    }
+
+    if ($vue > 0) {
+      return TRUE;
+    }else {
+      return FALSE;
+    }
+  }
+
+  function ajout_genre($genre, $dbh)  {
+    $genre = strtolower($genre);
+
+    $req_genre = $dbh->prepare('INSERT INTO genre(genre) VALUES(:genre)');
+
+    $vue = 0;
+    foreach ($dbh->query('SELECT genre FROM genre') as $row) {
+      if ($row[0] == $genre) {
+        $vue++;
+      }
+    }
+
+    if ($vue == 0) {
+      $req_genre->execute(array('genre' => $genre));
+    }else {
+      return TRUE;
+    }
+
+    $vue == 0;
+    foreach ($dbh->query('SELECT * FROM genre') as $row) {
+      if ($row[1] == $genre) {
+        $vue++;
+      }
+    }
+
+    if ($vue > 0) {
+      return TRUE;
+    }else {
+      return FALSE;
+    }
+  }
 ?>
