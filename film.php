@@ -1,8 +1,6 @@
 <?php
-  include 'php/donnerfilm.php';
-
-  $dbh = new PDO('mysql:host=localhost;dbname=metropolis', 'root', '');
-  $dbh->exec("SET CHARACTER SET utf8");
+  include 'php/function.php';
+  include 'php/connexion_dbh.php';
 
   if (isset($_GET['film'])) {
     $film = $_GET['film'];

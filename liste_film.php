@@ -1,7 +1,5 @@
 <?php
-  function genre($film) {
-    $dbh = new PDO('mysql:host=localhost;dbname=metropolis', 'root', '');
-    $dbh->exec("SET CHARACTER SET utf8");
+  function genre($film, $dbh) {
     $genres = '';
 
     foreach($dbh->query('SELECT * from appartenir') as $liste) {
@@ -19,8 +17,7 @@
     $dbh = NULL;
   }
 
-  $dbh = new PDO('mysql:host=localhost;dbname=metropolis', 'root', '');
-  $dbh->exec("SET CHARACTER SET utf8");
+  include 'php/connexion_dbh.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -47,7 +44,7 @@
         <div>
           <?php foreach($dbh->query('SELECT * from film') as $row) { ?>
             <a href="film.php?film=<?php echo $row['ID'];?>" style="background-image: url(img/affiche/<?php echo $row['affiche']; ?>);">
-              <p class="genre"><?php echo genre($row['ID']); ?></p>
+              <p class="genre"><?php echo genre($row['ID'], $dbh); ?></p>
               <p class="descript"><?php echo $row['description']; ?></p>
             </a>
           <?php } ?>

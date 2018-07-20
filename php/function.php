@@ -114,4 +114,30 @@
 
     return $background;
   }
+
+  function ajout_date($date,$dbh) {
+    $req_date = $dbh->prepare('INSERT INTO date(ID,annee) VALUES(:annee,:annee)');
+
+    $vue = 0;
+    foreach ($dbh->query('SELECT * FROM date') as $row) {
+      if ($row[0] == $date) {
+        $vue++;
+      }
+    }
+
+    if ($vue == 0) {
+      $req_date->execute(array('annee' => $date ));
+    }
+
+    $sql = 'SELECT annee FROM date WHERE ID = ' . $date;
+    foreach ($dbh->query($sql) as $row) {
+      if ($row[0] == $date) {
+        return TRUE;
+      }else {
+        $sql = 'DELETE FROM date WHERE date.ID =' . $date;
+        $dbh->query($sql);
+        return FALSE;
+      }
+    }
+  }
 ?>
