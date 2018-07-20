@@ -46,7 +46,7 @@
       $req_joue = $dbh->prepare('INSERT INTO joue(ID,ID_Acteur) VALUES(:idfilm,:idacteur)');
       $req_realisateur = $dbh->prepare('INSERT INTO realisateur(nom,prenom) VALUES(:nom,:prenom)');
 
-
+      // FAIT ajout_date($date,$dbh)
     }else {
       $erreur = '<p>Le film existe déja dans la base de donnes</p>';
     }
