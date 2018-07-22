@@ -159,26 +159,100 @@
     <body>
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
         <input type="text" name="titre" placeholder="Titre du film" required>
-        <textarea name="description" rows="8" cols="80" placeholder="description" required></textarea>
-        <input type="file" name="affiche" placeholder="Affiche" required>
-        <input type="file" name="background" placeholder="Background" required>
-        <input type="url" name="video" placeholder="Video" required>
         <input type="number" name="anner" placeholder="Année" required>
 
-        <input type="text" name="nom_acteur_0" placeholder="Nom acteur" required>
-        <input type="text" name="prenom_acteur_0" placeholder="Prénom acteur" required>
-        <input type="text" name="nom_acteur_1" placeholder="Nom acteur" required>
-        <input type="text" name="prenom_acteur_1" placeholder="Prénom acteur" required>
+        <fieldset class="acteur">
+          <p>
+            <input type="text" name="nom_acteur_0" placeholder="Nom acteur" required>
+            <input type="text" name="prenom_acteur_0" placeholder="Prénom acteur" required>
+          </p>
+          <p id="plusacteur">
+          </p>
+          <p>
+            <button type="button" name="acteurplus" onclick="ajoutActeur();">+</button>
+            <button type="button" name="acteurmoin" onclick="suprActeur();">-</button>
+          </p>
+        </fieldset>
 
-        <input type="text" name="nom_realisateur_0" placeholder="Nom réalisateur" required>
-        <input type="text" name="prenom_realisateur_0" placeholder="Prénom réalisateur" required>
-        <input type="text" name="nom_realisateur_1" placeholder="Nom réalisateur" required>
-        <input type="text" name="prenom_realisateur_1" placeholder="Prénom réalisateur" required>
+        <fieldset class='realisateur'>
+          <p>
+            <input type="text" name="nom_realisateur_0" placeholder="Nom réalisateur" required>
+            <input type="text" name="prenom_realisateur_0" placeholder="Prénom réalisateur" required>
+          </p>
+          <p id="plusrea">
+          </p>
+          <p>
+            <button type="button" name="reaplus" onclick="ajoutRea();">+</button>
+            <button type="button" name="reamoin" onclick="suprRea();">-</button>
+          </p>
+        </fieldset>
 
-        <input type="text" name="genre_0" placeholder="Genre" required>
-        <input type="text" name="genre_1" placeholder="Genre" required>
+        <fieldset class="genre">
+          <p>
+            <input type="text" name="genre_0" placeholder="Genre" required>
+          </p>
+          <p id="plusgenr">
+          </p>
+          <p>
+            <button type="button" name="genrplus" onclick="ajoutGenr();">+</button>
+            <button type="button" name="genrmoin" onclick="suprGenr();">-</button>
+          </p>
+        </fieldset>
+
+        <textarea name="description" rows="8" cols="80" placeholder="description" required></textarea>
+        <label class="affiche"><span>Affiche : </span><input type="file" name="affiche" placeholder="Affiche" required></label>
+        <label class="background"><span>Background : </span><input type="file" name="background" placeholder="Background" required></label>
+        <label class="video"><span>ID youtube : </span><input type="url" name="video" required></label>
 
         <input type="submit" value="envoyer">
       </form>
+
+      <script type="text/javascript">
+        var iActeur = 0;
+        var iRea = 0;
+        var iGenre = 0;
+
+        function ajoutActeur() {
+          iActeur++;
+          var acteur = '<p id="acteur' + iActeur + '"><input type="text" name="nom_acteur_' + iActeur + '" placeholder="Nom acteur" required><input type="text" name="prenom_acteur_' + iActeur + '" placeholder="Prénom acteur" required></p>';
+          document.querySelector('#plusacteur').innerHTML += acteur;
+        }
+
+        function suprActeur() {
+          var balise = 'acteur' + iActeur;
+          var sup = document.getElementById(balise);
+          var element = document.getElementById('plusacteur');
+          element.removeChild(sup);
+          iActeur--;
+        }
+
+        function ajoutRea() {
+          iRea++;
+          var rea = '<p id="rea' + iRea + '"><input type="text" name="nom_realisateur_' + iRea + '" placeholder="Nom réalisateur" required><input type="text" name="prenom_realisateur_' + iRea + '" placeholder="Prénom réalisateur" required></p>';
+          document.querySelector('#plusrea').innerHTML += rea;
+        }
+
+        function suprRea() {
+          var balise = 'rea' + iRea;
+          var sup = document.getElementById(balise);
+          var element = document.getElementById('plusrea');
+          element.removeChild(sup);
+          iRea--;
+        }
+
+        function ajoutGenr() {
+          iGenre++;
+          var genre = '<p id="genr' + iGenre + '"><input type="text" name="genre_' + iGenre + '" placeholder="Genre" required></p>';
+          document.querySelector('#plusgenr').innerHTML += genre;
+        }
+
+        function suprGenr() {
+          var balise = 'genr' + iGenre;
+          var sup = document.getElementById(balise);
+          var element = document.getElementById('plusgenr');
+          element.removeChild(sup);
+          iGenre--;
+        }
+      </script>
     </body>
   </html>
