@@ -142,36 +142,36 @@
   }
 
   function ajout_acteur($nom, $prenom, $dbh)  {
-    $nom = strtolower($nom);
-    $prenom = strtolower($prenom);
+      $nom = strtolower($nom);
+      $prenom = strtolower($prenom);
 
-    $req_acteur = $dbh->prepare('INSERT INTO acteur(nom,prenom) VALUES(:nom,:prenom)');
+      $req_acteur = $dbh->prepare('INSERT INTO acteur(nom,prenom) VALUES(:nom,:prenom)');
 
-    $vue = 0;
-    foreach ($dbh->query('SELECT * FROM acteur') as $row) {
-      if ($row[1] == $nom && $row[2] == $prenom) {
-        $vue++;
+      $vue = 0;
+      foreach ($dbh->query('SELECT * FROM acteur') as $row) {
+        if ($row[1] == $nom && $row[2] == $prenom) {
+          $vue++;
+        }
       }
-    }
 
-    if ($vue == 0) {
-      $req_acteur->execute(array('nom' => $nom, 'prenom' => $prenom));
-    }else {
-      return TRUE;
-    }
-
-    $vue == 0;
-    foreach ($dbh->query('SELECT nom , prenom FROM acteur') as $row) {
-      if ($row[0] == $nom && $row[1] == $prenom) {
-        $vue++;
+      if ($vue == 0) {
+        $req_acteur->execute(array('nom' => $nom, 'prenom' => $prenom));
+      }else {
+        return TRUE;
       }
-    }
 
-    if ($vue > 0) {
-      return TRUE;
-    }else {
-      return FALSE;
-    }
+      $vue == 0;
+      foreach ($dbh->query('SELECT nom , prenom FROM acteur') as $row) {
+        if ($row[0] == $nom && $row[1] == $prenom) {
+          $vue++;
+        }
+      }
+
+      if ($vue > 0) {
+        return TRUE;
+      }else {
+        return FALSE;
+      }
   }
 
   function ajout_realisateur($nom, $prenom, $dbh)  {
@@ -236,6 +236,95 @@
       return TRUE;
     }else {
       return FALSE;
+    }
+  }
+
+  function ajout_affiche($id,$fichier,$dbh)  {
+    $sql = 'SELECT affiche FROM film WHERE ID = ' .$id;
+    foreach ($dbh->query($sql) as $row) {
+      $nom = $row[0];
+    }
+
+    if ($fichier['error'] > 0) {
+       echo "Erreur lors du transfert";
+    }else {
+      $extensions = array('jpg' , 'jpeg' , 'gif');
+      $extansions_fichier = strtolower(substr(strrchr($fichier['name'] , '.') , 1));
+
+      if ( in_array($extansions_fichier,$extensions) ) {
+        $nom = "img/affiche/{$nom}.{$extansions_fichier}";
+        $resultat = move_uploaded_file($fichier['tmp_name'],$nom);
+        if ($resultat) {
+          echo "Transfert réussi";
+        }else {
+          echo 'Transfert échouer';
+        }
+      }else {
+        echo'movaise extansions';
+      }
+    }
+  }
+
+  function ajout_background($id,$fichier,$dbh)  {
+    $sql = 'SELECT background FROM film WHERE ID = ' .$id;
+    foreach ($dbh->query($sql) as $row) {
+      $nom = $row[0];
+    }
+
+    if ($fichier['error'] > 0) {
+       echo "Erreur lors du transfert";
+    }else {
+      $extensions = array('jpg' , 'jpeg' , 'gif');
+      $extansions_fichier = strtolower(substr(strrchr($fichier['name'] , '.') , 1));
+
+      if ( in_array($extansions_fichier,$extensions) ) {
+        $nom = "img/background/{$nom}.{$extansions_fichier}";
+        $resultat = move_uploaded_file($fichier['tmp_name'],$nom);
+        if ($resultat) {
+          echo "Transfert réussi";
+        }else {
+          echo 'Transfert échouer';
+        }
+      }else {
+        echo'movaise extansions';
+      }
+    }
+  }
+
+  function ajout_video($id,$fichier,$dbh)  {
+    echo ini_get('upload_max_filesize').'<br/>';
+    ini_set("upload_max_filesize","300M");
+    echo ini_get("upload_max_filesize");
+
+    $sql = 'SELECT video FROM film WHERE ID = ' .$id;
+    foreach ($dbh->query($sql) as $row) {
+      $nom = $row[0];
+    }
+
+    if (! empty($fichier)) {
+        echo '<pre>'.print_r($fichier,true).'</pre>';
+        $file_name = $nom;
+        $file_extension = strrchr($file_name, ".");
+
+        $file_tmp_name = $fichier['tmp_name'];
+        $filedest = 'video/' . $file_name;
+
+        $extension_autorisees = array(
+            0 =>'.mp4',
+            1 => '.MP4'
+        );
+
+        echo '<pre>'.print_r($file_extension,true).'</pre>';
+        echo '<pre>'.print_r($extension_autorisees,true).'</pre>';
+        if (in_array(
+            $file_extension,
+            $extension_autorisees
+        )) {
+            echo $file_tmp_name.'<br>';
+            echo $filedest;
+        } else {
+            echo 'Uniquement .mp4, .MP4';
+        }
     }
   }
 ?>

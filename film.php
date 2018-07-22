@@ -46,14 +46,12 @@
 
       <main>
         <div class="video">
-          <video id="film" controls preload="auto">
-            <source src="video/<?php echo $video; ?>" type="video/mp4" />
-          </video>
+          <iframe src="https://www.youtube.com/embed/<?php echo $video; ?>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
           <div class="info" style="background-image: url('img/background/<?php echo $background; ?>');">
             <h1 class="titre"><?php echo $titre; ?></h1>
             <ul class="genre"><?php echo $genre; ?></ul>
-            <a id="play" href="#">play</a>
+            <a id="play" href="javascript:void(0);" onclick="play();">play</a>
             <button type="button" name="favorie"><img src="img/icon/favorie.png" alt="Bouton favorie" /></button>
             <p class="vue"><?php echo $vue; ?> vues</p>
           </div>
