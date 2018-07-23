@@ -252,7 +252,7 @@
       $extansions_fichier = strtolower(substr(strrchr($fichier['name'] , '.') , 1));
 
       if ( in_array($extansions_fichier,$extensions) ) {
-        $nom = "img/affiche/{$nom}.{$extansions_fichier}";
+        $nom = "img/affiche/{$nom}";
         $resultat = move_uploaded_file($fichier['tmp_name'],$nom);
         if ($resultat) {
           echo "Transfert réussi";
@@ -278,7 +278,7 @@
       $extansions_fichier = strtolower(substr(strrchr($fichier['name'] , '.') , 1));
 
       if ( in_array($extansions_fichier,$extensions) ) {
-        $nom = "img/background/{$nom}.{$extansions_fichier}";
+        $nom = "img/background/{$nom}";
         $resultat = move_uploaded_file($fichier['tmp_name'],$nom);
         if ($resultat) {
           echo "Transfert réussi";

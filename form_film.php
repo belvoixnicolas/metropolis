@@ -81,7 +81,7 @@
       $description = $_POST['description'];
       $extansions_fichier = strtolower(substr(strrchr($_FILES['affiche']['name'] , '.') , 1));
       $affiche = str_replace(' ','',$titre) . '.' . $extansions_fichier;
-      $video = strtolower($_POST['video']);
+      $video = $_POST['video'];
       $extansions_fichier = strtolower(substr(strrchr($_FILES['background']['name'] , '.') , 1));
       $background = 'back_' . str_replace(' ','',$titre) . '.' . $extansions_fichier;
       $date = $_POST['anner'];
@@ -202,7 +202,7 @@
         <textarea name="description" rows="8" cols="80" placeholder="description" required></textarea>
         <label class="affiche"><span>Affiche : </span><input type="file" name="affiche" placeholder="Affiche" required></label>
         <label class="background"><span>Background : </span><input type="file" name="background" placeholder="Background" required></label>
-        <label class="video"><span>ID youtube : </span><input type="url" name="video" required></label>
+        <label class="video"><span>ID youtube : </span><input type="text" name="video" required></label>
 
         <input type="submit" value="envoyer">
       </form>
