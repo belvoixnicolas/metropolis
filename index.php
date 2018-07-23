@@ -13,6 +13,7 @@
       <link href="https://fonts.googleapis.com/css?family=Marck+Script|Open+Sans" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
+    <?php include 'php/inscription.php'; ?>
     <body>
       <nav id="index">
       </nav>
